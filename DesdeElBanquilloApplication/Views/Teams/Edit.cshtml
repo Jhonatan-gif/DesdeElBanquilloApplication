@@ -1,0 +1,59 @@
+﻿@model DesdeElBanquilloApplication.Models.Team
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Team</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdTeam" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoundedDate" class="control-label"></label>
+                <input asp-for="FoundedDate" class="form-control" />
+                <span asp-validation-for="FoundedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCompetition" class="control-label"></label>
+                <select asp-for="IdCompetition" class="form-control" asp-items="ViewBag.IdCompetition"></select>
+                <span asp-validation-for="IdCompetition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCountry" class="control-label"></label>
+                <select asp-for="IdCountry" class="form-control" asp-items="ViewBag.IdCountry"></select>
+                <span asp-validation-for="IdCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdLeague" class="control-label"></label>
+                <select asp-for="IdLeague" class="form-control" asp-items="ViewBag.IdLeague"></select>
+                <span asp-validation-for="IdLeague" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
